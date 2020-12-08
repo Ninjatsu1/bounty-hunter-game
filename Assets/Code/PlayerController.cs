@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         {
             playerVelocity.y = 0f;
         }
-        Vector2 movement = inputManager.GetPlayerMovement();
+        Vector3 movement = inputManager.GetPlayerMovement();
         Vector3 move = new Vector3(movement.x, 0, movement.y);
         move = mainCameraTransform.forward * move.z + mainCameraTransform.right * move.x;
         move.y = 0f;
@@ -46,9 +46,9 @@ public class PlayerController : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
-        if(movement != Vector2.zero)
+        if (movement != Vector3.zero)
         {
-            float targetAngle = Mathf.Atan2(movement.x, movement.y) * Mathf.Deg2Rad + mainCameraTransform.eulerAngles.y;
+            float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Deg2Rad + mainCameraTransform.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
