@@ -1,5 +1,5 @@
 {
-    "name": "InputMaster",
+    "name": "PlayerControls",
     "maps": [
         {
             "name": "Player",
@@ -34,6 +34,14 @@
                     "type": "PassThrough",
                     "id": "cc0fad09-2a96-4f69-b960-e9eb04091b9c",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "6a003799-87be-4e36-89d4-bb1a83e19afe",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -278,6 +286,17 @@
                     "processors": "",
                     "groups": "Keyboard_and_mouse",
                     "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26305583-96ad-4e1c-af19-7f88d2858eb8",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard_and_mouse",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
