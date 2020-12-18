@@ -312,8 +312,8 @@ GameObject:
   - component: {fileID: 296657067}
   - component: {fileID: 296657066}
   - component: {fileID: 296657064}
-  - component: {fileID: 296657065}
   - component: {fileID: 296657069}
+  - component: {fileID: 296657065}
   - component: {fileID: 296657071}
   m_Layer: 0
   m_Name: test_enemy
@@ -353,14 +353,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 296657063}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0836ad8558a8b48800a45a93998778, type: 3}
+  m_Script: {fileID: 11500000, guid: 66f8871d9b3db3147a371aa557c1f12f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 680802129}
-  - {fileID: 1832286623}
-  - {fileID: 1118201659}
-  minRemainigDistance: 1.5
+  maxHealth: 50
+  currentHealth: 0
+  healthBar: {fileID: 1505901460}
 --- !u!23 &296657066
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -431,14 +429,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296657063}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82932d40c78cf7e439143c0310e82d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isAttacking: 0
-  waypoints: []
-  minRemainingDistance: 1
+  waypoints:
+  - {fileID: 1832286623}
+  - {fileID: 680802129}
+  - {fileID: 1118201659}
+  minRemainingDistance: 1.5
 --- !u!95 &296657071
 Animator:
   serializedVersion: 3
@@ -2019,7 +2020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214c62713cb4b2846b1b43ea8dc4b8f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
+  slider: {fileID: 1505901459}
 --- !u!1 &1526980365
 GameObject:
   m_ObjectHideFlags: 0

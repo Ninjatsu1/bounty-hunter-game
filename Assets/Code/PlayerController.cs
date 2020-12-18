@@ -17,11 +17,12 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     public Transform mainCameraTransform;
-
+    private float speed;
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         inputManager = InputManager.Instance;
+        speed = playerSpeed;
     }
 
     void Update()
@@ -51,6 +52,16 @@ public class PlayerController : MonoBehaviour
             float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Deg2Rad + mainCameraTransform.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
+        }
+
+        //Player sprint
+        if (inputManager.PlayerSprint())
+        {
+            playerSpeed = 5.0f;
+        }
+        if (inputManager.PlayerSprintFinish())
+        {
+            playerSpeed = speed;
         }
     }
 }
