@@ -1,31 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    //Make sure there is only one input manager
-    private static InputManager _instance;
-    public static InputManager Instance
-    {
-        get
-        {
-            return _instance;
-        }
-    }
-    
+    public static InputManager Instance { get; private set; }
+
     private PlayerControls playerControls;
     
     //Get this befote start
     private void Awake()
     {
-        if (_instance != null && _instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this.gameObject);
         }
         else
         {
-            _instance = this;
+            Instance = this;
         }
         playerControls = new PlayerControls();
     }
@@ -40,6 +30,7 @@ public class InputManager : MonoBehaviour
     {
         playerControls.Disable();
     }
+
     //Get movement
     public Vector2 GetPlayerMovement()
     {
@@ -52,12 +43,26 @@ public class InputManager : MonoBehaviour
         return playerControls.Player.Look.ReadValue<Vector2>();
     }
 
+    //Player jump
     public bool PlayerJumped()
     {
         return playerControls.Player.Jump.triggered;
     }
+
+    //Interact with object
     public bool Interact()
     {
         return playerControls.Player.Interact.triggered;
+    }
+
+    //Player sprint
+    public bool PlayerSprint()
+    {
+        return playerControls.Player.SprintStart.triggered;
+    }
+
+    public bool PlayerSprintFinish()
+    {
+        return playerControls.Player.SprintFinish.triggered;
     }
 }
