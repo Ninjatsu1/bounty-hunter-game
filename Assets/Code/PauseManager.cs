@@ -2,8 +2,8 @@
 using UnityEngine.SceneManagement;
 public class PauseManager : MonoBehaviour
 {
-    
-    private InputManager inputManager;
+
+    public InputManager inputManager;
     public bool MenuIsOpen = false;
     public GameObject PauseMenuGameObject;
     private void Start()
@@ -17,7 +17,7 @@ public class PauseManager : MonoBehaviour
         {
             OpenMenu();
         }
-        if(inputManager.DisplayMenu == false)
+        if (inputManager.DisplayMenu == false)
         {
             CloseMenu();
             PauseMenuGameObject.SetActive(false);
