@@ -34,7 +34,7 @@ public class InputManager : MonoBehaviour
     //Disable controls
     private void OnDisable()
     {
-        //playerControls.Disable();
+        playerControls.Disable();
     }
 
     //Get movement
@@ -77,14 +77,16 @@ public class InputManager : MonoBehaviour
     public bool OpenMenu()
     {
         DisplayMenu = true;
+        
         return playerControls.Player.OpenMenu.triggered;
+        
     }
 
     //Change to UI action map
 
     public void SwitchToUIActionMap()
     {
-        DisplayMenu = true;
+        //DisplayMenu = true;
         playerControls.Player.Disable();
         playerControls.UI.Enable();
         playerInput.SwitchCurrentActionMap("UI");
@@ -106,6 +108,4 @@ public class InputManager : MonoBehaviour
     {
         return playerControls.UI.CloseMenu.triggered;
     }
-
-
 }
